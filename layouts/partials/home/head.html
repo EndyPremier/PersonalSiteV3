@@ -1,9 +1,13 @@
 <header>
+  {{ if .IsHome }}
   <div class="top">
     {{ partial "components/mail.html" . }}
     {{ partial "components/socials.html" . }}
   </div>
+  {{ end }}
   <h1 class="title">{{ .Site.Title }}</h1>
+  {{ if .IsHome }}
   <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
+  {{ end }}
   <p class="description">{{ .Description }}</p>
 </header>

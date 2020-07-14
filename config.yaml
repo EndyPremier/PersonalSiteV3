@@ -3,7 +3,7 @@ languageCode: en-us
 
 title: Endy Iskandar Imam
 
-paginate: 10
+paginate: 2
 
 disqusShortname: "" # Enable comments by entering your Disqus shortname
 googleAnalytics: "" # Enable Google Analytics by entering your tracking id
@@ -50,7 +50,6 @@ params:
   tagSearch: True
 
   shortTitle: Endy I. Imam
-  altTitle: Building Blocks
   subtitle: Junior Software Engineer
 
   email: imam.endy@gmail.com

@@ -1,3 +1,12 @@
 {{ define "main" }}
-<h1><a href="{{ "/" | relURL }}">-w-</a></h1>
+<header>
+  <h1>{{ .Title }}</h1>
+  <p class="description">{{ .Description }}</p>
+</header>
+<div class="articles">
+  {{ range .Paginator.Pages }}
+  {{ partial "components/article" . }}
+  {{ end }}
+</div>
+<!-- Add Pagination -->
 {{ end }}
