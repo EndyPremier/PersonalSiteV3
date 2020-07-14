@@ -1,0 +1,7 @@
+{{ if .Site.Params.socials }}
+<ul class="socials">
+  {{ range .Site.Params.socials }}
+  <li><a href="{{ .url }}"><i class="fab fa-{{ .site }}"></i></a></li>
+  {{ end }}
+</ul>
+{{ end }}

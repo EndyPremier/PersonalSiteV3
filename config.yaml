@@ -1,0 +1,80 @@
+baseURL: http://example.org/
+languageCode: en-us
+
+title: Endy Iskandar Imam
+
+paginate: 10
+
+disqusShortname: "" # Enable comments by entering your Disqus shortname
+googleAnalytics: "" # Enable Google Analytics by entering your tracking id
+
+
+taxonomies:
+  tag: tags
+  catagory: categories
+  language: languages
+  framework: frameworks
+  tool: tools
+  concept: concepts
+  associate: associates
+  other: others
+
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: "/blog"
+    - identifier: about
+      name: About
+      url: "/#about"
+    - identifier: experience
+      name: Experience
+      url: "/#experience"
+    - identifier: projects
+      name: Projects
+      url: "/projects"
+    - identifier: contact
+      name: Contact
+      url: "/#contact"
+
+
+params:
+  logo: EII
+  search: True
+  tagSearch: True
+
+  shortTitle: Endy I. Imam
+  altTitle: Building Blocks
+  subtitle: Junior Software Engineer
+
+  email: imam.endy@gmail.com
+  socials:
+    - site: github
+      url: "https://github.com/EndyPremier"
+    - site: linkedin
+      url: "https://www.linkedin.com/in/endy-imam/"
+    - site: stack-overflow
+      url: "https://stackoverflow.com/users/12727003"
+#   - site: stack-exchange
+#     url: "https://stackexchange.com/users/9983799"
+    - site: codepen
+      url: "https://codepen.io/dashboard/"
+#   - site: medium
+#     url: "https://medium.com/@imam.endy"
+    - site: twitter
+      url: "https://twitter.com/EndyPremier"
+    - site: instagram
+      url: "https://www.instagram.com/premieechan/?hl=en"
+#    - site: gitlab
+#      url: "#"
+#    - site: dev
+#      url: "#"
+#    - site: dribbble
+#      url: "#"
+#    - site: kaggle
+#      url: "#"
+#    - site: reddit
+#      url: "#"
+#    - site: facebook
+#      url: "#"

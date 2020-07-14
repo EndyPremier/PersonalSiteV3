@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article>
+  <header>
+    <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+    <h1 class="title">{{ .Title }}</h1>
+    <p class="description">{{ .Description }}</p>
+    <div class="associates">
+      {{ range .Params.associates }}
+      <a href="{{ "/associate/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </div>
+    <div class="tag-group">
+      {{ range .Params.tags }}
+      <a href="{{ "/tag/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="body">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

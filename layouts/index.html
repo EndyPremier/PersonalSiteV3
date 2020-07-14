@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+{{ partial "home/head.html" . }}
+
+{{ partial "home/articles.html" (dict "sect" "blog" "head" "Recent Blog Posts" "more" "More Posts" "pages" $.Site.RegularPages) }}
+
+{{ partial "home/about.html" . }}
+
+{{ partial "home/skills.html" . }}
+
+{{ partial "home/experience.html" . }}
+
+{{ partial "home/articles.html" (dict "sect" "projects" "head" "Recent Projects" "more" "More Projects" "pages" $.Site.RegularPages) }}
+
+{{ partial "home/contact.html" . }}
+
+{{ end }}

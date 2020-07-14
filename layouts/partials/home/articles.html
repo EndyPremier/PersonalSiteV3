@@ -1,0 +1,34 @@
+<section id="{{ .sect }}">
+  <h2>{{ .head }}</h2>
+  <div class="articles">
+    {{ range first 3 (where .pages "Section" .sect) }}
+    <article>
+      {{ if .Params.image }}
+      <img src="{{ .Params.image }}" style="max-width: 100%">
+      {{ end }}
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <div class="meta">
+        <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+        {{ if .Params.associates }}
+        <div class="associates">
+          {{ $count := len .Params.associates }}
+          {{ range first 1 .Params.associates }}
+          <a href="{{ "/associate/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+          {{ if gt $count 1 }}
+          +{{ sub $count 1 }}
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <p class="description">{{ .Description }}</p>
+      <div class="tag-group">
+        {{ range .Params.tags }}
+        <a href="{{ "/tag/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  <a href="/{{ .sect }}">{{ .more }}<i class="fal fa-chevron-right"></i></a>
+</section>

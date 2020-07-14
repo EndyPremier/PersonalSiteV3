@@ -1,0 +1,8 @@
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>{{ .Params.contactText }}</p>
+  <h3>Email Me</h3>
+  <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+  <h3>Follow Me</h3>
+  {{ partial "components/socials.html" . }}
+</section>

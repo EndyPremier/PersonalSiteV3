@@ -1,0 +1,31 @@
+<section id="experience">
+  <h2>Work Experience</h2>
+  <div class="jobs">
+    {{ range where $.Site.RegularPages.Reverse "Section" "jobs" }}
+    <div class="job">
+      <h3>{{ .Title }} <a href="{{ .Params.url }}">@ {{ .Params.company }}</a></h3>
+      <div class="meta">
+        <div class="location">{{ .Params.location }}</div>
+        <div class="time">
+          {{ $startDisplay := dateFormat "Jan 2006" .Params.start }}
+          {{ if .Params.end }}
+            {{ $endDisplay := dateFormat "Jan 2006" .Params.end }}
+            {{ if ne $startDisplay $endDisplay }}
+              {{ print $startDisplay "–" $endDisplay }}
+            {{ else }}
+              {{ print $startDisplay }}
+            {{ end }}
+          {{ else }}
+            {{ print $startDisplay "–Present" }}
+          {{ end }}
+        </div>
+      </div>
+      <ul>
+        {{ range .Params.List }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</section>

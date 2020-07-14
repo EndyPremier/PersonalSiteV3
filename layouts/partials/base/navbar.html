@@ -1,0 +1,42 @@
+<input type="checkbox" id="nav-toggle">
+<nav>
+  <div class="container">
+    <div class="topnav">
+      {{ $homeDir := ("/" | relURL) }}
+      {{ if .IsHome }}
+        {{ $homeDir = "#" }}
+      {{ end }}
+      <a href="{{ $homeDir }}" class="logo">{{ .Site.Params.logo }}</a>
+      <label for="nav-toggle">
+        <i class="fal fa-bars"></i>
+        <i class="fal fa-times"></i>
+      </label>
+    </div>
+    <div class="shadow"></div>
+    <ul>
+      {{ $search := .Site.Params.search }}
+      {{ $tagSearch := .Site.Params.tagSearch }}
+      {{ if (or $search $tagSearch) }}
+      <li>
+        <div class="utils">
+          {{ if $search }}
+          <a href="#"><i class="fas fa-search"></i></a>
+          {{ end }}
+          {{ if $tagSearch }}
+          <a href="#"><i class="fas fa-tag"></i></a>
+          {{ end }}
+        </div>
+      </li>
+      {{ end }}
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+      <li>
+        <div class="externals">
+          {{ partial "components/mail.html" . }}
+          {{ partial "components/socials.html" . }}
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
