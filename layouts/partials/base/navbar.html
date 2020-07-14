@@ -28,7 +28,7 @@
         </div>
       </li>
       {{ end }}
-      {{ range .Site.Menus.main }}
+      {{ range .Site.Menus.main.ByWeight }}
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
       <li>
