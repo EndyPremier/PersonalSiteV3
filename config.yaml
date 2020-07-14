@@ -3,7 +3,7 @@ languageCode: en-us
 
 title: Endy Iskandar Imam
 
-paginate: 2
+paginate: 10
 
 disqusShortname: "" # Enable comments by entering your Disqus shortname
 googleAnalytics: "" # Enable Google Analytics by entering your tracking id
@@ -45,6 +45,16 @@ menu:
 
 
 params:
+  taxonomySymbol:
+    tags: tags
+    categories: th-large
+    languages: code
+    frameworks: warehouse-alt
+    tools: toolbox
+    concepts: lightbulb-on
+    associates: chart-network
+    others: archive
+
   logo: EII
   search: True
   tagSearch: True

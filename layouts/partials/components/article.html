@@ -5,6 +5,7 @@
   <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
   <div class="meta">
     <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
+    <div class="section">{{ .Section | title }}</div>
     {{ if .Params.associates }}
     <div class="associates">
       {{ $count := len .Params.associates }}

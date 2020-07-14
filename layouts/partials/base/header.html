@@ -1,42 +1,57 @@
 <header>
-  {{ if or .IsHome (eq .Kind "page") }}
+  {{ if and (ne .Kind "section") (ne .Kind "taxonomyTerm") }}
   <div class="top">
     {{ if .IsHome }}
-    {{ partial "components/mail.html" . }}
-    {{ partial "components/socials.html" . }}
-    {{ else }}
-    {{ if .Params.externals }}
-    <div class="externals">
-      {{ range .Params.externals }}
-        <a href="{{ .url }}">
-        {{ if eq .source "link" }}
-          <i class="fal fa-link"></i>
-        {{ else }}
-          <i class="fab fa-{{ .source }}"></i>
+      {{ partial "components/mail.html" . }}
+      {{ partial "components/socials.html" . }}
+    {{ else if eq .Kind "page"}}
+      {{ if .Params.externals }}
+      <div class="externals">
+        {{ range .Params.externals }}
+          <a href="{{ .url }}">
+          {{ if eq .source "link" }}
+            <i class="fal fa-link"></i>
+          {{ else }}
+            <i class="fab fa-{{ .source }}"></i>
+          {{ end }}
+          </a>
         {{ end }}
-        </a>
+      </div>
       {{ end }}
-    </div>
-    {{ end }}
-    <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+      <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+      <span class="section">{{ .Section | title }}</span>
+    {{ else if eq .Kind "taxonomy" }}
+      <span class="section">{{ .Section | title }}</span>
     {{ end }}
   </div>
   {{ end }}
-  {{ if .IsHome }}
-  <h1 class="title">{{ .Site.Title }}</h1>
-  {{ else }}
-  <h1 class="title">{{ .Title }}</h1>
-  {{ end }}
+
+  <h1 class="title">
+    {{ if .Params.symbol }}
+      <i class="fal fa-{{ .Params.symbol }}"></i>
+    {{ else if eq .Kind "taxonomy" }}
+      <i class="fal fa-{{ index .Site.Params.taxonomySymbol .Section }}"></i>
+    {{ end }}
+    {{ if .IsHome }}
+    {{ .Site.Title }}
+    {{ else }}
+    {{ .Title }}
+    {{ end }}
+  </h1>
+
   {{ if .IsHome }}
   <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
   {{ end }}
   <p class="description">{{ .Description }}</p>
-  {{ if .Params.associates }}
-  <div class="associates">
-    {{ range .Params.associates }}
-    <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+
+  {{ if eq .Kind "page" }}
+    {{ if .Params.associates }}
+    <div class="associates">
+      {{ range .Params.associates }}
+      <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </div>
     {{ end }}
-  </div>
+    {{ partial "components/taxonomies.html" . }}
   {{ end }}
-  {{ partial "components/taxonomies.html" . }}
 </header>
