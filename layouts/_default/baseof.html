@@ -10,6 +10,9 @@
 </head>
 <body>
   {{ partial "base/navbar.html" . }}
+  {{ if ne .Kind "page" }}
+    {{ partial "base/header.html" . }}
+  {{ end }}
   {{ block "main" . }}{{ end }}
   {{ partial "base/footer.html" . }}
 </body>

@@ -1,0 +1,42 @@
+<header>
+  {{ if or .IsHome (eq .Kind "page") }}
+  <div class="top">
+    {{ if .IsHome }}
+    {{ partial "components/mail.html" . }}
+    {{ partial "components/socials.html" . }}
+    {{ else }}
+    {{ if .Params.externals }}
+    <div class="externals">
+      {{ range .Params.externals }}
+        <a href="{{ .url }}">
+        {{ if eq .source "link" }}
+          <i class="fal fa-link"></i>
+        {{ else }}
+          <i class="fab fa-{{ .source }}"></i>
+        {{ end }}
+        </a>
+      {{ end }}
+    </div>
+    {{ end }}
+    <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ if .IsHome }}
+  <h1 class="title">{{ .Site.Title }}</h1>
+  {{ else }}
+  <h1 class="title">{{ .Title }}</h1>
+  {{ end }}
+  {{ if .IsHome }}
+  <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
+  {{ end }}
+  <p class="description">{{ .Description }}</p>
+  {{ if .Params.associates }}
+  <div class="associates">
+    {{ range .Params.associates }}
+    <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ partial "components/taxonomies.html" . }}
+</header>

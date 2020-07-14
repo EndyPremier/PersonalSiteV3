@@ -3,19 +3,26 @@ draft: true
 title: "Lorem Ipsum 4"
 date: 2020-07-03T18:59:56-04:00
 description: I'm baby etsy four dollar toast echo park biodiesel everyday carry ethical try-hard marfa jean shorts cold-pressed wayfarers.
+
 externals:
   - source: link
     url: "#"
   - source: github
     url: "#"
+
 associates:
   - Code for Boston
-tags:
+
+languages:
   - JavaScript
+frameworks:
   - React
+tools:
   - Gatsby
+concepts:
   - Static Site
   - Web Design
+
 image: "https://images.unsplash.com/photo-1502921982-f2471545c93b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 ---
 

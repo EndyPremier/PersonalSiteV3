@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-{{ partial "home/head.html" . }}
-
 {{ partial "home/articles.html" (dict "sect" "blog" "head" "Recent Blog Posts" "more" "More Posts" "pages" $.Site.RegularPages) }}
 
 {{ partial "home/about.html" . }}

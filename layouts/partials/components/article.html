@@ -9,7 +9,7 @@
     <div class="associates">
       {{ $count := len .Params.associates }}
       {{ range first 1 .Params.associates }}
-      <a href="{{ "/associate/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
       {{ end }}
       {{ if gt $count 1 }}
       +{{ sub $count 1 }}
@@ -18,9 +18,5 @@
     {{ end }}
   </div>
   <p class="description">{{ .Description }}</p>
-  <div class="tag-group">
-    {{ range .Params.tags }}
-    <a href="{{ "/tag/" | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
-    {{ end }}
-  </div>
+  {{ partial "components/taxonomies.html" . }}
 </article>
