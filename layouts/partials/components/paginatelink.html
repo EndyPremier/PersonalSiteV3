@@ -1,0 +1,8 @@
+{{ $targets := (dict "first" .curr.First "last" .curr.Last "prev" .curr.Prev "next" .curr.Next) }}
+{{ $target  := index $targets .target }}
+
+{{ if and $target (ne .curr $target) }}
+<a href="{{ $target.URL }}"><i class="fal fa-{{ .symbol }}"></i></a>
+{{ else }}
+<i class="fal fa-{{ .symbol }} disabled-pagination"></i>
+{{ end }}
