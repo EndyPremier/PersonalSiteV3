@@ -3,13 +3,13 @@
   {{ if (and (ne $term "associates") (gt (len $vals) 0)) }}
     {{ if not $hasTaxonomies }}
     {{ $hasTaxonomies = true }}
-    <div class="tag-group">
+    <ul class="tag-group">
     {{ end }}
     {{ range ( $.Param $term ) }}
-    <a href="{{ (print $term "/") | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a>
+    <li><a href="{{ (print $term "/") | relLangURL }}{{ . | urlize }}" class="tag">{{ . }}</a></li>
     {{ end }}
   {{ end }}
 {{ end }}
 {{ if $hasTaxonomies }}
-</div>
+</ul>
 {{ end }}

@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+{{ $hasNoTaxonomies := true }}
+{{ range $term, $vals := .Site.Taxonomies }}
+  {{ if $vals }}
+  {{ $hasNoTaxonomies = false }}
+  <section id="{{ $term }}">
+    <h2><i class="fal fa-{{ index $.Site.Params.taxonomySymbol $term }}"></i> {{ $term | title }}</h2>
+    <ul class="tag-group">
+      {{ range $key, $pages := $vals }}
+      <li>
+        <a href="{{ (print $term "/") | relLangURL }}{{ $key | urlize }}">
+          {{ $key | humanize | title }} <span>{{ len $pages }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{ if $hasNoTaxonomies }}
+  <section class="no-tags">
+    No Tags Available...
+  </section>
+{{ end }}
+
+{{ end }}

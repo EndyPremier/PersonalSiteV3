@@ -1,28 +1,30 @@
 <header>
-  {{ if and (ne .Kind "section") (ne .Kind "taxonomyTerm") }}
+  {{ if .IsHome }}
   <div class="top">
-    {{ if .IsHome }}
-      {{ partial "components/mail.html" . }}
-      {{ partial "components/socials.html" . }}
-    {{ else if eq .Kind "page"}}
-      {{ if .Params.externals }}
-      <div class="externals">
-        {{ range .Params.externals }}
-          <a href="{{ .url }}">
-          {{ if eq .source "link" }}
-            <i class="fal fa-link"></i>
-          {{ else }}
-            <i class="fab fa-{{ .source }}"></i>
-          {{ end }}
-          </a>
+    {{ partial "components/mail.html" . }}
+    {{ partial "components/socials.html" . }}
+  </div>
+  {{ else if eq .Kind "page"}}
+  <div class="top">
+    {{ if .Params.externals }}
+    <div class="externals">
+      {{ range .Params.externals }}
+        <a href="{{ .url }}">
+        {{ if eq .source "link" }}
+          <i class="fal fa-link"></i>
+        {{ else }}
+          <i class="fab fa-{{ .source }}"></i>
         {{ end }}
-      </div>
+        </a>
       {{ end }}
-      <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
-      <span class="section">{{ .Section | title }}</span>
-    {{ else if eq .Kind "taxonomy" }}
-      <span class="section">{{ .Section | title }}</span>
+    </div>
     {{ end }}
+    <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+    <span class="section">{{ .Section | title }}</span>
+  </div>
+  {{ else if eq .Kind "taxonomy" }}
+  <div class="top">
+    <span class="section">{{ .Section | title }}</span>
   </div>
   {{ end }}
 
@@ -46,11 +48,11 @@
 
   {{ if eq .Kind "page" }}
     {{ if .Params.associates }}
-    <div class="associates">
+    <ul class="associates">
       {{ range .Params.associates }}
-      <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      <li><a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
       {{ end }}
-    </div>
+    </ul>
     {{ end }}
     {{ partial "components/taxonomies.html" . }}
   {{ end }}
