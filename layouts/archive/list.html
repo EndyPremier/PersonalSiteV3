@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+{{ if $pages := where $.Site.RegularPages "Section" "!=" "jobs" }}
+
+  {{ range ($pages.GroupByDate "2006") }}
+  <h2>{{ .Key }}</h2>
+    {{ range (.Pages.GroupByDate "January") }}
+    <h3>{{ .Key }}</h3>
+    <ul>
+      {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          {{ if eq .Section "blog" }}
+            <i class="fal fa-rss"></i>
+          {{ else if eq .Section "projects" }}
+            <i class="fal fa-tools"></i>
+          {{ end }}
+          {{ .Title }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  {{ end }}
+
+{{ else }}
+
+  <section class="nothing">
+    No {{ .Params.plural }} Available...
+  </section>
+
+{{ end }}
+
+{{ end }}

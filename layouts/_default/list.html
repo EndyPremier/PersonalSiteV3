@@ -1,11 +1,21 @@
 {{ define "main" }}
 
-<div class="articles">
-  {{ range .Paginator.Pages }}
-  {{ partial "components/article" . }}
-  {{ end }}
-</div>
+{{ if .Paginator.Pages }}
 
-{{ partial "components/pagination" . }}
+  <div class="articles">
+    {{ range .Paginator.Pages }}
+    {{ partial "components/article" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "components/pagination" . }}
+
+{{ else }}
+
+  <section class="nothing">
+    No {{ .Params.plural }} Available...
+  </section>
+
+{{ end }}
 
 {{ end }}
