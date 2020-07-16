@@ -19,8 +19,11 @@
       {{ end }}
     </div>
     {{ end }}
-    <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
-    <span class="section">{{ .Section | title }}</span>
+
+    <div class="meta">
+      <i class="fal fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
+      <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+    </div>
   </div>
   {{ else if eq .Kind "taxonomy" }}
   <div class="top">
@@ -30,10 +33,13 @@
 
   <h1 class="title">
     {{ if .Params.symbol }}
-      <i class="fal fa-{{ .Params.symbol }}"></i>
+    <i class="fal fa-{{ .Params.symbol }}"></i>
+    {{ else if eq .Kind "section" }}
+    <i class="fal fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
     {{ else if eq .Kind "taxonomy" }}
-      <i class="fal fa-{{ index .Site.Params.taxonomySymbol .Section }}"></i>
+    <i class="fal fa-{{ index $.Site.Params.taxonomySymbol .Section }}"></i>
     {{ end }}
+
     {{ if .IsHome }}
     {{ .Site.Title }}
     {{ else }}

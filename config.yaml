@@ -45,28 +45,34 @@ menu:
 
 
 params:
+  sectionSymbol:
+    # Sections
+    blog:       rss
+    projects:   toolbox
+    # Utilites
+    search:     search
+    archive:    archive
+    taglist:    tags
+
   taxonomySymbol:
-    tags: tags
+    tags:       tags
     categories: th-large
-    languages: code
+    languages:  code
     frameworks: warehouse-alt
-    tools: toolbox
-    concepts: lightbulb-on
+    tools:      toolbox
+    concepts:   lightbulb-on
     associates: chart-network
-    others: feather
+    others:     feather
 
   logo: EII
 
   utilities:
-    - name:   search
-      url:    '#'
-      symbol: search
-    - name:   taglist
-      url:    /taglist/
-      symbol: tag
-    - name:   archive
-      url:    /archive/
-      symbol: archive
+    - name: search
+      url:  '#'
+    - name: taglist
+      url:  /taglist/
+    - name: archive
+      url:  /archive/
 
   shortTitle: Endy I. Imam
   subtitle: Junior Software Engineer
@@ -89,15 +95,15 @@ params:
       url: "https://twitter.com/EndyPremier"
     - site: instagram
       url: "https://www.instagram.com/premieechan/?hl=en"
-#    - site: gitlab
-#      url: "#"
-#    - site: dev
-#      url: "#"
-#    - site: dribbble
-#      url: "#"
-#    - site: kaggle
-#      url: "#"
-#    - site: reddit
-#      url: "#"
-#    - site: facebook
-#      url: "#"
+#   - site: gitlab
+#     url: "#"
+#   - site: dev
+#     url: "#"
+#   - site: dribbble
+#     url: "#"
+#   - site: kaggle
+#     url: "#"
+#   - site: reddit
+#     url: "#"
+#   - site: facebook
+#     url: "#"

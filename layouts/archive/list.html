@@ -9,11 +9,7 @@
       {{ range .Pages }}
       <li>
         <a href="{{ .RelPermalink }}">
-          {{ if eq .Section "blog" }}
-            <i class="fal fa-rss"></i>
-          {{ else if eq .Section "projects" }}
-            <i class="fal fa-tools"></i>
-          {{ end }}
+          <i class="fal fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
           {{ .Title }}
         </a>
       </li>

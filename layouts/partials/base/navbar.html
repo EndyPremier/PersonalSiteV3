@@ -19,7 +19,7 @@
       <li>
         <ul class="utils">
           {{ range $utilities }}
-          <li><a href="{{ .url }}"><i class="fal fa-{{ .symbol }}"></i></a></li>
+          <li><a href="{{ .url }}"><i class="fal fa-{{ index $.Site.Params.sectionSymbol .name }}"></i></a></li>
           {{ end }}
         </ul>
       </li>
