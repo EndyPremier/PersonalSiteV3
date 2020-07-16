@@ -1,3 +1,4 @@
+{{ if where $.Site.RegularPages.Reverse "Section" "jobs" }}
 <section id="experience">
   <h2>Work Experience</h2>
   <div class="jobs">
@@ -29,3 +30,4 @@
     {{ end }}
   </div>
 </section>
+{{ end }}

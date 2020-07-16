@@ -1,7 +1,12 @@
+{{ if or .Params.about .Params.profileImage }}
 <section id="about">
   <h2>About Me</h2>
+  {{ if .Params.about }}
   <p>{{ .Params.about }}</p>
+  {{ end }}
+
   {{ if .Params.profileImage }}
   <img src="{{ .Params.profileImage }}" style="max-width: 100%">
   {{ end }}
 </section>
+{{ end }}
