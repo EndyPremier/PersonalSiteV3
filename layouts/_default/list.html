@@ -2,8 +2,9 @@
 
 {{ if .Paginator.Pages }}
   <div class="articles">
+    {{ $kind := $.Kind }}
     {{ range .Paginator.Pages }}
-    {{ partial "components/article" . }}
+    {{ partial "components/article" (dict "page" . "kind" $kind) }}
     {{ end }}
   </div>
 

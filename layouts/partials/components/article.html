@@ -1,15 +1,21 @@
 <article>
-  {{ if .Params.image }}
-  <img src="{{ .Params.image }}" style="max-width: 100%">
+  {{ if .page.Params.image }}
+  <img src="{{ .page.Params.image }}" style="max-width: 100%">
   {{ end }}
-  <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <h3><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></h3>
   <div class="meta">
-    <div class="date">{{ .PublishDate.Format "Jan 2, 2006" }}</div>
-    <div class="section">{{ .Section | title }}</div>
-    {{ if .Params.associates }}
+    {{ if eq .kind "taxonomy" }}
+    <div class="portion">
+      <i class="fal fa-{{ index .page.Site.Params.sectionSymbol .page.Section }}"></i>
+      <div class="date">{{ .page.PublishDate.Format "Jan 2, 2006" }}</div>
+    </div>
+    {{ else }}
+    <div class="date">{{ .page.PublishDate.Format "Jan 2, 2006" }}</div>
+    {{ end }}
+    {{ if .page.Params.associates }}
     <div class="associates">
-      {{ $count := len .Params.associates }}
-      {{ range first 1 .Params.associates }}
+      {{ $count := len .page.Params.associates }}
+      {{ range first 1 .page.Params.associates }}
       <a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
       {{ end }}
       {{ if gt $count 1 }}
@@ -18,6 +24,6 @@
     </div>
     {{ end }}
   </div>
-  <p class="description">{{ .Description }}</p>
+  <p class="description">{{ .page.Description }}</p>
   {{ partial "components/taxonomies.html" . }}
 </article>

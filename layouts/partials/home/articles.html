@@ -1,8 +1,9 @@
 <section id="{{ .sect }}">
   <h2>{{ .head }}</h2>
   <div class="articles">
+    {{ $kind := $.Kind }}
     {{ range first 3 (where .pages "Section" .sect) }}
-    {{ partial "components/article" . }}
+    {{ partial "components/article" (dict "page" . "kind" $kind) }}
     {{ end }}
   </div>
   <a href="/{{ .sect }}">{{ .more }}<i class="fal fa-chevron-right"></i></a>

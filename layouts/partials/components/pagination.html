@@ -1,3 +1,4 @@
+{{ if gt .Paginator.TotalPages 1 }}
 <div class="pagination">
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "first" "symbol" "chevron-double-left") }}
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "prev"  "symbol" "chevron-left") }}
@@ -5,3 +6,4 @@
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "next" "symbol" "chevron-right") }}
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "last" "symbol" "chevron-double-right") }}
 </div>
+{{ end }}
