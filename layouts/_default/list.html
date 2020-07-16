@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-{{ partial "components/pagination" . }}
-
 <div class="articles">
   {{ range .Paginator.Pages }}
   {{ partial "components/article" . }}

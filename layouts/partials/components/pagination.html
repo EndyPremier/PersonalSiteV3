@@ -1,10 +1,7 @@
 <div class="pagination">
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "first" "symbol" "chevron-double-left") }}
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "prev"  "symbol" "chevron-left") }}
-  <div class="pageVal">
-    <span class="curr">{{ .Paginator.PageNumber }}</span>
-    of {{ .Paginator.TotalPages }}
-  </div>
+  <span class="curr">{{ .Paginator.PageNumber }}</span>
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "next" "symbol" "chevron-right") }}
   {{ partial "components/paginatelink.html" (dict "curr" .Paginator "target" "last" "symbol" "chevron-double-right") }}
 </div>

@@ -1,8 +1,28 @@
 {{ $targets := (dict "first" .curr.First "last" .curr.Last "prev" .curr.Prev "next" .curr.Next) }}
 {{ $target  := index $targets .target }}
 
-{{ if and $target (ne .curr $target) }}
-<a href="{{ $target.URL }}"><i class="fal fa-{{ .symbol }}"></i></a>
-{{ else }}
-<i class="fal fa-{{ .symbol }} disabled-pagination"></i>
+{{ $num := 1 }}
+{{ if $target }}
+  {{ $num = $target.PageNumber }}
+{{ else if in .symbol "right" }}
+  {{ $num = .curr.TotalPages }}
 {{ end }}
+
+{{ if and $target (ne .curr $target) }}
+<div><a href="{{ $target.URL }}">
+{{ else }}
+<div class="disabled">
+{{ end }}
+
+  {{ if in .symbol "right" }}
+  <span>{{ $num }}</span>
+  {{ end }}
+  <i class="fal fa-{{ .symbol }}"></i>
+  {{ if in .symbol "left" }}
+  <span>{{ $num }}</span>
+  {{ end }}
+
+  {{ if and $target (ne .curr $target) }}
+  </a>
+  {{ end }}
+</div>
