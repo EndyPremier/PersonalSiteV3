@@ -1,7 +1,6 @@
 {{ define "main" }}
 
 {{ if .Paginator.Pages }}
-
   <div class="articles">
     {{ range .Paginator.Pages }}
     {{ partial "components/article" . }}
@@ -9,13 +8,8 @@
   </div>
 
   {{ partial "components/pagination" . }}
-
 {{ else }}
-
-  <section class="nothing">
-    No {{ .Params.plural }} Available...
-  </section>
-
+  {{ partial "components/empty" . }}
 {{ end }}
 
 {{ end }}

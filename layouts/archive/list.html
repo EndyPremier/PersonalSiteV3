@@ -1,7 +1,6 @@
 {{ define "main" }}
 
 {{ if $pages := where $.Site.RegularPages "Section" "!=" "jobs" }}
-
   {{ range ($pages.GroupByDate "2006") }}
   <h2>{{ .Key }}</h2>
     {{ range (.Pages.GroupByDate "January") }}
@@ -22,13 +21,8 @@
     </ul>
     {{ end }}
   {{ end }}
-
 {{ else }}
-
-  <section class="nothing">
-    No {{ .Params.plural }} Available...
-  </section>
-
+  {{ partial "components/empty" . }}
 {{ end }}
 
 {{ end }}
