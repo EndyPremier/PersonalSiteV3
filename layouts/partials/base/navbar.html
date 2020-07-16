@@ -13,30 +13,34 @@
       </label>
     </div>
     <div class="shadow"></div>
+
     <ul>
-      {{ $search := .Site.Params.search }}
-      {{ $tagSearch := .Site.Params.tagSearch }}
-      {{ if (or $search $tagSearch) }}
+      {{ if $utilities := .Site.Params.utilities }}
       <li>
-        <div class="utils">
-          {{ if $search }}
-          <a href="#"><i class="fal fa-search"></i></a>
+        <ul class="utils">
+          {{ range $utilities }}
+          <li><a href="{{ .url }}"><i class="fal fa-{{ .symbol }}"></i></a></li>
           {{ end }}
-          {{ if $tagSearch }}
-          <a href="/taglist/"><i class="fal fa-tag"></i></a>
-          {{ end }}
-        </div>
+        </ul>
       </li>
       {{ end }}
+
       {{ range .Site.Menus.main.ByWeight }}
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
+
+      {{ if or .Site.Params.email .Site.Params.socials }}
       <li>
-        <div class="externals">
-          {{ partial "components/mail.html" . }}
-          {{ partial "components/socials.html" . }}
-        </div>
+        <ul class="externals">
+          {{ if .Site.Params.email }}
+          <li>{{ partial "components/mail.html" . }}</li>
+          {{ end }}
+          {{ if .Site.Params.socials }}
+          <li>{{ partial "components/socials.html" . }}</li>
+          {{ end }}
+        </ul>
       </li>
+      {{ end }}
     </ul>
   </div>
 </nav>

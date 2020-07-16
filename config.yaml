@@ -56,8 +56,17 @@ params:
     others: archive
 
   logo: EII
-  search: True
-  tagSearch: True
+
+  utilities:
+    - name:   search
+      url:    '#'
+      symbol: search
+    - name:   taglist
+      url:    /taglist/
+      symbol: tag
+    - name:   archive
+      url:    /archive/
+      symbol: archive
 
   shortTitle: Endy I. Imam
   subtitle: Junior Software Engineer
