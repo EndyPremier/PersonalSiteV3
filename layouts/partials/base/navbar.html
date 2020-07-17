@@ -16,8 +16,8 @@
 
     <ul>
       {{ if $utilities := .Site.Params.utilities }}
-      <li>
-        <ul class="utils">
+      <li class="utils">
+        <ul>
           {{ range $utilities }}
           <li><a href="{{ .url }}"><i class="fal fa-{{ index $.Site.Params.sectionSymbol .name }}"></i></a></li>
           {{ end }}
@@ -30,8 +30,8 @@
       {{ end }}
 
       {{ if or .Site.Params.email .Site.Params.socials }}
-      <li>
-        <ul class="externals">
+      <li class="externals">
+        <ul>
           {{ if .Site.Params.email }}
           <li>{{ partial "components/mail.html" . }}</li>
           {{ end }}

@@ -1,5 +1,5 @@
 <footer id="footer">
-  {{ if not .IsHome }}
+  {{ if and (not .IsHome) (or .Site.Params.email .Site.Params.socials) }}
   {{ partial "components/mail.html" . }}
   {{ partial "components/socials.html" . }}
   {{ end }}

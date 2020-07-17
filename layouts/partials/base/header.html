@@ -1,5 +1,5 @@
 <header>
-  {{ if .IsHome }}
+  {{ if and .IsHome (or .Site.Params.email .Site.Params.socials) }}
   <div class="top">
     {{ partial "components/mail.html" . }}
     {{ partial "components/socials.html" . }}
@@ -47,10 +47,12 @@
     {{ end }}
   </h1>
 
-  {{ if .IsHome }}
+  {{ if and .IsHome .Site.Params.Subtitle }}
   <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
   {{ end }}
+  {{ if .Description }}
   <p class="description">{{ .Description }}</p>
+  {{ end }}
 
   {{ if eq .Kind "page" }}
     {{ if .Params.associates }}
