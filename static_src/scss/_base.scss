@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Work+Sans:wght@400;600&display=swap');
+
+
+$background: #1E252D;
+$card-bg: #2D3844;
+
+$base-text: #C0C0C0;
+$display-text: #E3E3E3;
+$accent: #D0D41D;
+
+$button-bg: #848F9D;
+$button-text: #101419;
+
+$display-font: 'Fira Code', monospace;
+$text-font: 'Work Sans', sans-serif;
+
+
+:root {
+  background: $background;
+  color: $base-text;
+  font-family: $text-font;
+}
+
+
+header, section, footer {
+	margin: 2.5rem 0;
+	padding: 0 1rem;
+}
+
+
+h1, h2, h3 {
+	color: $display-text;
+	font-family: $display-font;
+	font-weight: 300;
+}
+
+h1, h2, article h3 {
+	margin-top: 0;
+}
+
+h3 {
+	margin-bottom: 0.6em;
+}
+
+
+a {
+	text-decoration: none;
+	color: $display-text;
+}

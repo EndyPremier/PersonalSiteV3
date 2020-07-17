@@ -3,18 +3,18 @@
   <h2>Skills</h2>
   {{ $minCount := .Params.firstSkills }}
   {{ range .Params.skillGroup }}
-  <h3><i class="fal fa-{{ .symbol }}"></i> {{ .category }}</h3>
+  <h3><i class="fal fa-fw fa-{{ .symbol }}"></i> {{ .category }}</h3>
   <ul class="skills">
     {{ $count := 0 }}
     {{ range .skills }}
       {{ if eq $count $minCount }}
-        <li><a href="#"><i class="fal fa-plus"></i></a></li>
+        <li><a href="#"><i class="fal fa-fw fa-plus"></i></a></li>
       {{ end }}
       <li>{{ .skill }} <span>{{ .proficiency }}</span></li>
       {{ $count = add $count 1 }}
     {{ end }}
     {{ if gt $count $minCount }}
-      <li><a href="#"><i class="fal fa-minus"></i></a></li>
+      <li><a href="#"><i class="fal fa-fw fa-minus"></i></a></li>
     {{ end }}
   </ul>
   {{ end }}

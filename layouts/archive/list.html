@@ -9,7 +9,7 @@
       {{ range .Pages }}
       <li>
         <a href="{{ .RelPermalink }}">
-          <i class="fal fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
+          <i class="fal fa-fw fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
           {{ .Title }}
         </a>
       </li>
