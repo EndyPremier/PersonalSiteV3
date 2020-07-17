@@ -11,7 +11,7 @@
   {{ range $term, $vals := .Site.Taxonomies }}
     {{ if $vals }}
     <section id="{{ $term }}">
-      <h2><i class="fal fa-fw fa-{{ index $.Site.Params.taxonomySymbol $term }}"></i> {{ $term | title }}</h2>
+      <h2>{{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.taxonomySymbol $term)) }} {{ $term | title }}</h2>
       <ul class="tag-group">
         {{ range $key, $pages := $vals }}
         <li>

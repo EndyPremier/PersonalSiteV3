@@ -12,7 +12,7 @@
   {{ if .NextInSection }}
   <a href="{{ .NextInSection.RelPermalink }}">
     <div class="left">
-      <i class="fal fa-fw fa-chevron-left"></i>
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" "chevron-left") }}
       <div>
         <div class="top">Newer Post</div>
         <div class="name">{{ .NextInSection.Title }}</div>
@@ -30,7 +30,7 @@
         <div class="top">Older Post</div>
         <div class="name">{{ .PrevInSection.Title }}</div>
       </div>
-      <i class="fal fa-fw fa-chevron-right"></i>
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" "chevron-right") }}
     </div>
   </a>
   {{ else }}

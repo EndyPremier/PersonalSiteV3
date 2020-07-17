@@ -17,7 +17,7 @@
   {{ if in .symbol "right" }}
   <span>{{ $num }}</span>
   {{ end }}
-  <i class="fal fa-fw fa-{{ .symbol }}"></i>
+  {{ partial "atomic/fa" (dict "type" "l" "symbol" (.symbol)) }}
   {{ if in .symbol "left" }}
   <span>{{ $num }}</span>
   {{ end }}

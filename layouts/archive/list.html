@@ -3,13 +3,14 @@
 {{ if $pages := where $.Site.RegularPages "Section" "!=" "jobs" }}
   {{ range ($pages.GroupByDate "2006") }}
   <h2>{{ .Key }}</h2>
+  {{ $year := .Key }}
     {{ range (.Pages.GroupByDate "January") }}
-    <h3>{{ .Key }}</h3>
+    <h3>{{ .Key }} {{ $year }}</h3>
     <ul>
       {{ range .Pages }}
       <li>
         <a href="{{ .RelPermalink }}">
-          <i class="fal fa-fw fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
+          {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
           {{ .Title }}
         </a>
       </li>

@@ -1,7 +1,7 @@
 {{ if .Site.Params.socials }}
 <ul class="socials">
   {{ range .Site.Params.socials }}
-  <li><a href="{{ .url }}"><i class="fab fa-fw fa-{{ .site }}"></i></a></li>
+  <li><a href="{{ .url }}">{{ partial "atomic/fa" (dict "type" "b" "symbol" .site) }}</a></li>
   {{ end }}
 </ul>
 {{ end }}

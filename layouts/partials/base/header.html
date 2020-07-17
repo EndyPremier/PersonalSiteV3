@@ -11,9 +11,9 @@
       {{ range .Params.externals }}
         <a href="{{ .url }}">
         {{ if eq .source "link" }}
-          <i class="fal fa-fw fa-link"></i>
+          {{ partial "atomic/fa" (dict "type" "l" "symbol" "link") }}
         {{ else }}
-          <i class="fab fa-fw fa-{{ .source }}"></i>
+          {{ partial "atomic/fa" (dict "type" "b" "symbol" (.source)) }}
         {{ end }}
         </a>
       {{ end }}
@@ -21,7 +21,7 @@
     {{ end }}
 
     <div class="meta">
-      <i class="fal fa-fw fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
       <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
     </div>
   </div>
@@ -33,11 +33,11 @@
 
   <h1 class="title">
     {{ if .Params.symbol }}
-    <i class="fal fa-fw fa-{{ .Params.symbol }}"></i>
+    {{ partial "atomic/fa" (dict "type" "l" "symbol" (.Params.symbol)) }}
     {{ else if eq .Kind "section" }}
-    <i class="fal fa-fw fa-{{ index $.Site.Params.sectionSymbol .Section }}"></i>
+    {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
     {{ else if eq .Kind "taxonomy" }}
-    <i class="fal fa-fw fa-{{ index $.Site.Params.taxonomySymbol .Section }}"></i>
+    {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.taxonomySymbol .Section)) }}
     {{ end }}
 
     {{ if .IsHome }}

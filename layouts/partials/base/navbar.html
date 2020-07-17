@@ -8,8 +8,8 @@
       {{ end }}
       <a href="{{ $homeDir }}" class="logo">{{ .Site.Params.logo }}</a>
       <label for="nav-toggle">
-        <i class="fal fa-fw fa-bars"></i>
-        <i class="fal fa-fw fa-times"></i>
+        {{ partial "atomic/fa" (dict "type" "l" "symbol" "bars") }}
+        {{ partial "atomic/fa" (dict "type" "l" "symbol" "times") }}
       </label>
     </div>
     <div class="shadow"></div>
@@ -19,7 +19,7 @@
       <li class="utils">
         <ul>
           {{ range $utilities }}
-          <li><a href="{{ .url }}"><i class="fal fa-fw fa-{{ index $.Site.Params.sectionSymbol .name }}"></i></a></li>
+          <li><a href="{{ .url }}">{{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .name)) }}</a></li>
           {{ end }}
         </ul>
       </li>

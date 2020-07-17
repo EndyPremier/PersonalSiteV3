@@ -6,7 +6,7 @@
   <div class="meta">
     {{ if eq .kind "taxonomy" }}
     <div class="portion">
-      <i class="fal fa-fw fa-{{ index .page.Site.Params.sectionSymbol .page.Section }}"></i>
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" (index .page.Site.Params.sectionSymbol .page.Section)) }}
       <div class="date">{{ .page.PublishDate.Format "Jan 2, 2006" }}</div>
     </div>
     {{ else }}
