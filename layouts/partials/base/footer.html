@@ -3,9 +3,28 @@
   {{ partial "components/mail.html" . }}
   {{ partial "components/socials.html" . }}
   {{ end }}
-  <!-- Add Github API -->
-  <p>Powered by Hugo & deployed by Netflify CMS.<br/>
-  Designed and Built by Endy Iskandar Imam.<br/>
-  © 2020.</p>
+
+  {{ if $.Site.Params.themeURL }}
+  <div class="theme-url"><a href="{{ $.Site.Params.themeURL }}">
+    <div class="git-action">
+      <i class="fal fa-eye"></i> Watch It.
+    </div>
+    <div class="git-action">
+      <i class="fal fa-star"></i> Star It.
+    </div>
+    <div class="git-action">
+      <i class="fal fa-code-branch"></i> Fork It.
+    </div>
+  </a></div>
+  {{ end }}
+
+  {{ if $.Site.Params.footer }}
+  <p class="info">
+    {{ range $.Site.Params.footer }}
+    {{ . | markdownify }}<br/>
+    {{ end }}
+  </p>
+  {{ end }}
+
   <div class="to-top"><a href="#"><i class="fal fa-chevron-up"></i></a></div>
 </footer>

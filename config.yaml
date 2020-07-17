@@ -77,6 +77,9 @@ params:
   shortTitle: Endy I. Imam
   subtitle: Junior Software Engineer
 
+  source:
+  no-js:
+
   email: imam.endy@gmail.com
   socials:
     - site: github
@@ -107,3 +110,9 @@ params:
 #     url: "#"
 #   - site: facebook
 #     url: "#"
+
+  themeURL: https://github.com/EndyPremier/PersonalSiteV3
+  footer:
+    - Powered by [Hugo](https://gohugo.io/) & deployed in [Netlify](https://www.netlify.com/) [CMS](https://www.netlifycms.org/).
+    - "[Designed & Built](https://github.com/EndyPremier/PersonalSiteV3) by [Endy Iskandar Imam](/)."
+    - © 2020.
