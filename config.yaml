@@ -67,8 +67,8 @@ params:
   logo: EII
 
   utilities:
-    - name: search
-      url:  '#'
+#   - name: search
+#     url:  '#'
     - name: taglist
       url:  /taglist/
     - name: archive
