@@ -1,8 +1,7 @@
 <header>
   {{ if and .IsHome (or .Site.Params.email .Site.Params.socials) }}
   <div class="top">
-    {{ partial "components/mail.html" . }}
-    {{ partial "components/socials.html" . }}
+    {{ partial "components/externals" . }}
   </div>
   {{ else if eq .Kind "page"}}
   <div class="top">

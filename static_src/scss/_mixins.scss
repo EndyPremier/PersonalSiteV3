@@ -1,0 +1,15 @@
+@mixin ul-no-spacing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin inline-flex-wrap($spacing) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  & > li:not(:last-child) {
+    margin-right: $spacing;
+  }
+}

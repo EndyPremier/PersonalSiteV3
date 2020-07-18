@@ -1,0 +1,15 @@
+.mail {
+  & a, & svg {
+    color: $accent;
+    font-family: $display-font;
+  }
+
+  & a {
+    display: flex;
+  }
+
+  & span {
+    font-size: smaller;
+    margin-left: 0.1em;
+  }
+}

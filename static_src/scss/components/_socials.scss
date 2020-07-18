@@ -1,0 +1,8 @@
+ul.socials {
+  @include ul-no-spacing;
+  @include inline-flex-wrap(0);
+
+  & svg {
+    color: $accent;
+  }
+}

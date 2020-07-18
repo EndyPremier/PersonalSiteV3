@@ -1,0 +1,10 @@
+{{ if or .Site.Params.email .Site.Params.socials }}
+<ul class="externals">
+  {{ if .Site.Params.email }}
+  <li>{{ partial "components/mail" . }}</li>
+  {{ end }}
+  {{ if .Site.Params.socials }}
+  <li>{{ partial "components/socials" . }}</li>
+  {{ end }}
+</ul>
+{{ end }}

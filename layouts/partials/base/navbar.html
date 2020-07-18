@@ -29,18 +29,7 @@
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
 
-      {{ if or .Site.Params.email .Site.Params.socials }}
-      <li class="externals">
-        <ul>
-          {{ if .Site.Params.email }}
-          <li>{{ partial "components/mail.html" . }}</li>
-          {{ end }}
-          {{ if .Site.Params.socials }}
-          <li>{{ partial "components/socials.html" . }}</li>
-          {{ end }}
-        </ul>
-      </li>
-      {{ end }}
+      <li>{{ partial "components/externals" . }}</li>
     </ul>
   </div>
 </nav>
