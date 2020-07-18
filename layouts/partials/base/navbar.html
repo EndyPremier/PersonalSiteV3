@@ -8,16 +8,16 @@
       {{ end }}
       <a href="{{ $homeDir }}" class="logo">{{ .Site.Params.logo }}</a>
       <label for="nav-toggle">
-        {{ partial "atomic/fa" (dict "type" "l" "symbol" "bars") }}
-        {{ partial "atomic/fa" (dict "type" "l" "symbol" "times") }}
+        {{ partial "atomic/fa" (dict "type" "r closed" "symbol" "bars") }}
+        {{ partial "atomic/fa" (dict "type" "r opened" "symbol" "times") }}
       </label>
     </div>
     <div class="shadow"></div>
 
-    <ul>
+    <ul class="menu">
       {{ if $utilities := .Site.Params.utilities }}
-      <li class="utils">
-        <ul>
+      <li>
+        <ul class="utils">
           {{ range $utilities }}
           <li><a href="{{ .url }}">{{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .name)) }}</a></li>
           {{ end }}
@@ -32,4 +32,5 @@
       <li>{{ partial "components/externals" . }}</li>
     </ul>
   </div>
+  <div class="shadow"></div>
 </nav>

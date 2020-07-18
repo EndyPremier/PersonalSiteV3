@@ -1,5 +1,124 @@
+@use "sass:color";
+
+
+@mixin nav-animation {
+  transition-property: height, top;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@mixin bottom-shadow($color) {
+  height: 1rem;
+  background-image: linear-gradient($color, color.scale($color, $alpha: -100%));
+
+  @include nav-animation;
+}
+
+
+#nav-toggle {
+  display: none;
+
+  &:not(:checked) ~ nav {
+    .topnav .opened {
+      display: none;
+    }
+  }
+
+  &:checked ~ nav {
+    .container {
+      height: 100%;
+
+      .shadow {
+        height: 0.25rem;
+      }
+    }
+
+    .topnav .closed {
+      display: none;
+    }
+
+    & > .shadow {
+      top: 100%;
+    }
+  }
+}
+
+
 nav {
+  $nav-height: 50px;
+  $nav-spacing: 1rem;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  & > *, & .container > * {
+    position: absolute;
+    width: 100%;
+  }
+
+  .container {
+    height: $nav-height;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    background: $nav-color;
+
+    @include nav-animation;
+
+    .shadow {
+      @include bottom-shadow($nav-color);
+
+      top: $nav-height;
+      z-index: 1;
+    }
+  }
+
+  .topnav {
+    height: $nav-height;
+
+    font-size: 1.6rem;
+    background: $nav-color;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+
+    padding-right: 0.4em;
+    padding-left:  0.5em;
+  }
+
+  .menu {
+    bottom: 0;
+    margin: 0;
+    padding: 0 $nav-spacing $nav-spacing;
+    @include display-style;
+
+    & > li {
+      font-size: 2rem;
+
+      &:last-child {
+        margin-top: 0.3em;
+      }
+    }
+  }
+
+  & > .shadow {
+    @include bottom-shadow(transparentize(black, 0.6));
+
+    top: $nav-height;
+  }
+
+  .utils {
+    @include inline-flex-wrap(0.3em);
+  }
+
   .externals {
     flex-direction: column;
+    font-size: 0.6em;
   }
 }

@@ -11,3 +11,9 @@
     margin-right: $spacing;
   }
 }
+
+
+@mixin display-style {
+	font-family: $display-font;
+	font-weight: 300;
+}

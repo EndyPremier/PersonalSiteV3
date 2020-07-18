@@ -3,6 +3,7 @@
 
 $background: #1E252D;
 $card-bg: #2D3844;
+$nav-color: $card-bg;
 
 $base-text: #C0C0C0;
 $display-text: #E3E3E3;
@@ -30,8 +31,7 @@ header, section, footer {
 
 h1, h2, h3 {
 	color: $display-text;
-	font-family: $display-font;
-	font-weight: 300;
+	@include display-style;
 }
 
 h1, h2, article h3 {
