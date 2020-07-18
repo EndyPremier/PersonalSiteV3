@@ -1,21 +1,20 @@
 <footer id="footer">
   {{ if and (not .IsHome) (or .Site.Params.email .Site.Params.socials) }}
-  {{ partial "components/mail.html" . }}
-  {{ partial "components/socials.html" . }}
+  {{ partial "components/externals" . }}
   {{ end }}
 
   {{ if $.Site.Params.themeURL }}
-  <div class="theme-url"><a href="{{ $.Site.Params.themeURL }}">
+  <a href="{{ $.Site.Params.themeURL }}" class="theme-url">
     <div class="git-action">
-      {{ partial "atomic/fa" (dict "type" "l" "symbol" "eye") }} Watch It.
+      {{ partial "atomic/fa" (dict "type" "r" "symbol" "eye") }} Watch It.
     </div>
     <div class="git-action">
-      {{ partial "atomic/fa" (dict "type" "l" "symbol" "star") }} Star It.
+      {{ partial "atomic/fa" (dict "type" "r" "symbol" "star") }} Star It.
     </div>
     <div class="git-action">
-      {{ partial "atomic/fa" (dict "type" "l" "symbol" "code-branch") }} Fork It.
+      {{ partial "atomic/fa" (dict "type" "r" "symbol" "code-branch") }} Fork It.
     </div>
-  </a></div>
+  </a>
   {{ end }}
 
   {{ if $.Site.Params.footer }}

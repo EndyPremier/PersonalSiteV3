@@ -1,4 +1,6 @@
 .externals {
-  @include ul-no-spacing;
-  @include inline-flex-wrap(0.25em);
+  @include no-spacing;
+  @include inline-flex-wrap(0.5em);
+
+  list-style: none;
 }

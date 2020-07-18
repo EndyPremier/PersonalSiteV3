@@ -42,14 +42,13 @@ a {
 }
 
 ul.socials {
-  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  list-style: none;
 }
-ul.socials > li:not(:last-child) {
+ul.socials > *:not(:last-child) {
   margin-right: 0;
 }
 ul.socials svg {
@@ -57,15 +56,47 @@ ul.socials svg {
 }
 
 .externals {
-  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+}
+.externals > *:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+nav .externals {
+  flex-direction: column;
+}
+
+footer {
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+}
+footer > * {
+  margin: 1rem 0 1rem;
+  padding: 0;
+}
+footer .externals {
+  flex-direction: column;
   align-items: center;
 }
-.externals > li:not(:last-child) {
+footer .theme-url {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+footer .theme-url > *:not(:last-child) {
   margin-right: 0.25em;
+}
+footer .info {
+  font-size: smaller;
+}
+footer .to-top {
+  font-size: 1.5rem;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
