@@ -14,6 +14,7 @@ $button-text: #101419;
 
 $display-font: 'Fira Code', monospace;
 $text-font: 'Work Sans', sans-serif;
+$root-font-size: 16px;
 
 
 :root {
@@ -46,4 +47,8 @@ h3 {
 a {
 	text-decoration: none;
 	color: $display-text;
+}
+
+label {
+	cursor: pointer;
 }
