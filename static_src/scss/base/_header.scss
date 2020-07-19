@@ -1,0 +1,38 @@
+header {
+  margin: 0;
+  padding-top: 66px;
+
+  .top, .top a {
+    @include display-style;
+    color: $accent;
+  }
+
+  // .top {
+  //   height: 1000px;
+  // }
+
+  .top {
+    @include inline-flex-wrap(0.5em);
+
+    .project-externals {
+      @include inline-flex-wrap(0);
+    }
+
+    .meta {
+      @include inline-flex-wrap(0.25em);
+    }
+  }
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+
+  .description {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .associates {
+    margin-bottom: 0.5rem;
+  }
+}

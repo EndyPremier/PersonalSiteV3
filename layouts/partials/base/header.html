@@ -6,7 +6,7 @@
   {{ else if eq .Kind "page"}}
   <div class="top">
     {{ if .Params.externals }}
-    <div class="externals">
+    <div class="project-externals">
       {{ range .Params.externals }}
         <a href="{{ .url }}">
         {{ if eq .source "link" }}

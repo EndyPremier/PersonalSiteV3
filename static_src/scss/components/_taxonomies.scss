@@ -1,0 +1,25 @@
+.tag-group, header .associates {
+  @include ul-inline-flex-wrap(0.375em);
+
+  font-size: smaller;
+
+  li {
+    margin-bottom: 0.375em;
+    border: 1px solid $accent;
+    padding: 0 0.375em;
+
+    border-radius: 0.25em;
+
+    a {
+      color: $accent;
+    }
+  }
+}
+
+header .associates li {
+  border-color: $display-text;
+
+  a {
+    color: $display-text;
+  }
+}

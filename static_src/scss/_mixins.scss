@@ -6,10 +6,17 @@
 @mixin inline-flex-wrap($spacing) {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 
   & > *:not(:last-child) {
     margin-right: $spacing;
   }
+}
+
+@mixin ul-inline-flex-wrap($spacing) {
+  list-style: none;
+  @include no-spacing;
+  @include inline-flex-wrap($spacing);
 }
 
 
