@@ -11,6 +11,10 @@ header {
   //   height: 1000px;
   // }
 
+  .header-top {
+    margin-bottom: 0.625rem;
+  }
+
   .top {
     @include inline-flex-wrap(0.5em);
 
@@ -24,7 +28,25 @@ header {
   }
 
   .title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0;
+
+    & > * {
+      font-size: 2rem;
+    }
+
+    svg {
+      margin-right: 0.625rem;
+    }
+
+    .main-title {
+      display: none;
+    }
+  }
+
+  .subtitle {
+    margin: 0;
+    font-size: 1.375rem;
   }
 
   .description {

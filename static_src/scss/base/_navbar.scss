@@ -52,11 +52,11 @@ nav {
   left: 0;
   top: 0;
 
-  width: 100vw;
+  width: 100%;
 
   & > *, & .container > * {
     position: absolute;
-    width: 100vw;
+    width: 100%;
   }
 
   .container {

@@ -1,66 +1,72 @@
 <header>
-  {{ if and .IsHome (or .Site.Params.email .Site.Params.socials) }}
-  <div class="top">
-    {{ partial "components/externals" . }}
-  </div>
-  {{ else if eq .Kind "page"}}
-  <div class="top">
-    {{ if .Params.externals }}
-    <div class="project-externals">
-      {{ range .Params.externals }}
-        <a href="{{ .url }}">
-        {{ if eq .source "link" }}
-          {{ partial "atomic/fa" (dict "type" "l" "symbol" "link") }}
-        {{ else }}
-          {{ partial "atomic/fa" (dict "type" "b" "symbol" (.source)) }}
+  <div class="header-top">
+    {{ if and .IsHome (or .Site.Params.email .Site.Params.socials) }}
+    <div class="top">
+      {{ partial "components/externals" . }}
+    </div>
+    {{ else if eq .Kind "page"}}
+    <div class="top">
+      {{ if .Params.externals }}
+      <div class="project-externals">
+        {{ range .Params.externals }}
+          <a href="{{ .url }}">
+          {{ if eq .source "link" }}
+            {{ partial "atomic/fa" (dict "type" "l" "symbol" "link") }}
+          {{ else }}
+            {{ partial "atomic/fa" (dict "type" "b" "symbol" (.source)) }}
+          {{ end }}
+          </a>
         {{ end }}
-        </a>
+      </div>
       {{ end }}
-    </div>
-    {{ end }}
 
-    <div class="meta">
-      {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
-      <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+      <div class="meta">
+        {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
+        <time datetime="{{ .PublishDate.Format "2006-01-02 15:04Z0700" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
+      </div>
     </div>
-  </div>
-  {{ else if eq .Kind "taxonomy" }}
-  <div class="top">
-    <span class="section">{{ .Section | title }}</span>
-  </div>
-  {{ end }}
-
-  <h1 class="title">
-    {{ if .Params.symbol }}
-    {{ partial "atomic/fa" (dict "type" "l" "symbol" (.Params.symbol)) }}
-    {{ else if eq .Kind "section" }}
-    {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
     {{ else if eq .Kind "taxonomy" }}
-    {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.taxonomySymbol .Section)) }}
+    <div class="top">
+      <span class="section">{{ .Section | title }}</span>
+    </div>
     {{ end }}
 
-    {{ if .IsHome }}
-    {{ .Site.Title }}
-    {{ else }}
-    {{ .Title }}
-    {{ end }}
-  </h1>
-
-  {{ if and .IsHome .Site.Params.Subtitle }}
-  <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
-  {{ end }}
-  {{ if .Description }}
-  <p class="description">{{ .Description }}</p>
-  {{ end }}
-
-  {{ if eq .Kind "page" }}
-    {{ if .Params.associates }}
-    <ul class="associates">
-      {{ range .Params.associates }}
-      <li><a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+    <h1 class="title">
+      {{ if .Params.symbol }}
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" (.Params.symbol)) }}
+      {{ else if eq .Kind "section" }}
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.sectionSymbol .Section)) }}
+      {{ else if eq .Kind "taxonomy" }}
+      {{ partial "atomic/fa" (dict "type" "l" "symbol" (index $.Site.Params.taxonomySymbol .Section)) }}
       {{ end }}
-    </ul>
+
+      {{ if .IsHome }}
+      <span class="short-title">{{ .Site.Params.shortTitle }}</span>
+      <span class="main-title">{{ .Site.Title }}</span>
+      {{ else }}
+      <span>{{ .Title }}</span>
+      {{ end }}
+    </h1>
+
+    {{ if and .IsHome .Site.Params.Subtitle }}
+    <p class="subtitle">{{ .Site.Params.Subtitle }}</p>
     {{ end }}
-    {{ partial "components/taxonomies.html" . }}
-  {{ end }}
+  </div>
+
+  <div class="header-bottom">
+    {{ if .Description }}
+    <p class="description">{{ .Description }}</p>
+    {{ end }}
+
+    {{ if eq .Kind "page" }}
+      {{ if .Params.associates }}
+      <ul class="associates">
+        {{ range .Params.associates }}
+        <li><a href="{{ "/associates/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}
+      {{ partial "components/taxonomies.html" . }}
+    {{ end }}
+  </div>
 </header>
