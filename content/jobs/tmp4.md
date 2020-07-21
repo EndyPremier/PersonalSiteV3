@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Tmp4"
 company: "John Doe, Inc."
 location: "Boston, MA, USA"

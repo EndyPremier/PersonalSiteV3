@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Lorem Ipsum 2"
 date: 2020-07-03T18:59:51-04:00
 description: I'm baby etsy four dollar toast echo park biodiesel everyday carry ethical try-hard marfa jean shorts cold-pressed wayfarers.

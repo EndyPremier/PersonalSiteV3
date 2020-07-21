@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Tmp1"
 company: "John Doe, Inc."
 location: "Boston, MA, USA"

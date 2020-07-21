@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Lorem Ipsum 1
 date: 2019-07-03T16:30:32-04:00
 description: I'm baby etsy four dollar toast echo park biodiesel everyday carry ethical try-hard marfa jean shorts cold-pressed wayfarers.
