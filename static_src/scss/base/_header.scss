@@ -57,4 +57,8 @@ header {
   .associates {
     margin-bottom: 0.5rem;
   }
+
+  .header-bottom > *:last-child {
+    margin-bottom: 0;
+  }
 }
