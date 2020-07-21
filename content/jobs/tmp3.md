@@ -3,7 +3,7 @@ draft: false
 title: "Tmp3"
 company: "John Doe, Inc."
 location: "Boston, MA, USA"
-url: "#"
+companyUrl: "#"
 start: 2020-02-01
 end: 2020-02-01
 list:
