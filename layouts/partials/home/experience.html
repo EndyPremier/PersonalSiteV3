@@ -4,7 +4,7 @@
   <div class="jobs">
     {{ range where $.Site.RegularPages.Reverse "Section" "jobs" }}
     <div class="job">
-      <h3>{{ .Title }} <a href="{{ .Params.url }}">@ {{ .Params.company }}</a></h3>
+      <h3>{{ .Title }} <a href="{{ .Params.companyUrl }}">@ {{ .Params.company }}</a></h3>
       <div class="meta">
         <div class="location">{{ .Params.location }}</div>
         <div class="time">
